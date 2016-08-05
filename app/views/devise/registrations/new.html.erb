@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col s6 offset-s3">
+
+    <h4 class="center indigo-text text-darken-4">Registrazione</h4>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field input-field input[type=text]:focus">
+        <%= f.label "Nome" %>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field input-field input[type=text]:focus">
+        <%= f.label "Cognome" %>
+        <%= f.text_field :surname %>
+      </div>
+
+      <div class="field input-field input[type=email]:focus">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "validate" %>
+      </div>
+
+      <div class="field input-field input[type=date]:focus">
+        <%= f.label "data di nascita" %>
+        <%= f.text_field :date_of_birth, class: "datepicker picker__weekday-display picker__date-display picker__day picker__day--today" %>
+      </div>
+
+      <div class="field input-field input[type=password]:focus">
+        <%= f.label "Password (minimo 6 caratteri)" %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field input-field input[type=password]:focus">
+        <%= f.label "Ripeti password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <br />
+
+      <div class="actions">
+        <%= f.submit "Iscriviti", class: "waves-effect waves-light btn orange accent-4 btn-devise" %>
+      </div>
+
+      <br />
+    <% end %>
+
+      <%= render "devise/shared/links"%>
+
+  </div>
+
+</div>

@@ -1,0 +1,88 @@
+  <header class="navbar-fixed">
+
+    <!-- Dropdown navbar desktop -->
+    <ul id="dropdown-login" class="dropdown-content">
+      <li><%= link_to 'Utente', new_user_session_path, :class => "indigo darken-4 white-text", :title => "Log in utente" %></li>
+      <li><%= link_to 'Allenatore', new_trainer_session_path, :class => "orange accent-4 white-text", :title => "Log in allenatore" %></li>
+    </ul>
+
+    <ul id="dropdown-registrazione" class="dropdown-content">
+      <li><%= link_to 'Nuovo utente', new_user_registration_path, :class => "indigo darken-4 white-text", :title => "Registrazione utente" %></li>
+      <li><%= link_to 'Nuovo allenatore', new_trainer_registration_path, :class => "orange accent-4 white-text", :title => "Registrazione allenatore" %></li>
+    </ul>
+
+    <!-- Navbar desktop -->
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo"><img src="/immagini/fitjoy_full.png" alt="Unsplashed background img 2"></a> 
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to 'Come Funziona', '#come_funziona', :class => "indigo-text text-darken-4", :title => "Come funziona" %></li>
+          <li><%= link_to 'Registrati', '#registrati', :class => "indigo-text text-darken-4", :title => "Registrati" %></li>
+          <li><%= link_to 'Sono un allenatore', '#sono_un_allenatore', :class => "orange-text text-accent-4", :title => "Sono un allenatore" %></li>
+          <li><%= link_to 'Contatti', '#contacts', :class => "indigo-text text-darken-4", :title => "Contatti" %></li>
+          <li><%= link_to 'Blog', 'http://blog.fitjoy.it', :class => "indigo-text text-darken-4", :title => "Blog" %></li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "indigo-text text-darken-4", :title => "Log out utente" %></li>
+          <% else %>
+            <% if trainer_signed_in? %>
+              <li><%= link_to 'Log out', destroy_trainer_session_path, method: :delete, :class => "indigo-text text-darken-4", :title => "Log out allenatore" %></li>
+            <% else %>
+              <li><a class="indigo-text text-darken-4 dropdown-button" href="#!" data-activates="dropdown-login" title="Log in">Log in<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="indigo-text text-darken-4 dropdown-button" href="#!" data-activates="dropdown-registrazione" title="Registrazione">Registrazione<i class="material-icons right">arrow_drop_down</i></a></li>
+            <% end %>
+          <%end %>
+          
+        </ul>
+
+        <!-- Navbar mobile -->
+        <ul id="nav-mobile" class="side-nav">
+          <li><%= link_to 'Come Funziona', '#come_funziona', :class => "indigo-text text-darken-4", :title => "Come funziona" %></li>
+          <li><%= link_to 'Registrati', '#registrati', :class => "indigo-text text-darken-4", :title => "Registrati" %></li>
+          <li><%= link_to 'Sono un allenatore', '#sono_un_allenatore', :class => "orange-text text-accent-4", :title => "Sono un allenatore" %></li>
+          <li><%= link_to 'Contatti', '#contacts', :class => "indigo-text text-darken-4", :title => "Contatti" %></li>
+          <li><%= link_to 'Blog', 'http://blog.fitjoy.it', :class => "indigo-text text-darken-4", :title => "Blog" %></li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "indigo-text text-darken-4", :title => "Log out utente" %></li>
+          <% else %>
+            <% if trainer_signed_in? %>
+              <li><%= link_to 'Log out', destroy_trainer_session_path, method: :delete, :class => "indigo-text text-darken-4", :title => "Log out allenatore" %></li>
+            <% else %>
+
+              <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+
+                  <li>
+                    <a class="collapsible-header indigo-text text-darken-4">Log in<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><%= link_to 'Utente', new_user_session_path, :class => "indigo darken-4 white-text", :title => "Log in utente" %></li>
+                        <li><%= link_to 'Allenatore', new_trainer_session_path, :class => "orange accent-4 white-text", :title => "Log in allenatore" %></li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a class="collapsible-header indigo-text text-darken-4">Registrazione<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><%= link_to 'Nuovo utente', new_user_registration_path, :class => "indigo darken-4 white-text", :title => "Registrazione utente" %></li>
+                        <li><%= link_to 'Nuovo allenatore', new_trainer_registration_path, :class => "orange accent-4 white-text", :title => "Registrazione allenatore" %></li>
+                      </ul>
+                    </div>
+                  </li>
+
+            </ul>
+          </li>
+
+            <% end %>
+
+          <% end %>
+
+        </ul>
+
+        <a href="#" data-activates="nav-mobile" class="button-collapse indigo-text text-darken-4"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </header>

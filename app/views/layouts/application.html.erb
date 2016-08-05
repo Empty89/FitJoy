@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>FitJoy</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- SumoMe -->
+  <script src="//load.sumome.com/" data-sumo-site-id="aa2dc45c84092878ee7c07fcbabc256518faaaee603234d09b0025a1d8eb0922" async="async"></script>
+
+</head>
+<body>
+
+<%= render "layouts/header" %>
+
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+<main class="container">
+	<%= yield %>
+</main>
+
+<%= render "layouts/footer" %>
+
+</body>
+
+	<script>
+
+    $(document).ready(function(){
+    
+      // Sidebar
+      $('.button-collapse').sideNav({
+          menuWidth: 240, // Default is 240
+          edge: 'left', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        }
+      );
+
+      $('.collapsible').collapsible();
+
+      // Hide sideNav
+      //$('.button-collapse').sideNav('hide');
+      // Show sideNav
+      //$('.button-collapse').sideNav('show');
+
+      // Dropdown
+      $('.dropdown-button').dropdown({
+           inDuration: 300,
+           outDuration: 300,
+           constrain_width: true, // Does not change width of dropdown to that of the activator
+           gutter: 0, // Spacing from edge
+           belowOrigin: true // Displays dropdown below the button
+           }
+      );
+    });
+
+      $('.datepicker').pickadate({
+  	    selectMonths: true, // Creates a dropdown to control month
+  	    selectYears: 80, // Creates a dropdown of 15 years to control year
+  	    max: [2016]
+	    });
+
+	</script>
+
+</html>
