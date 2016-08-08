@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titolo:</strong>
+  <%= @lezioni.titolo %>
+</p>
+
+<p>
+  <strong>Prezzo:</strong>
+  <%= @lezioni.prezzo %>
+</p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @lezioni.descrizione %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @lezioni.date %>
+</p>
+
+<p>
+  <strong>Park:</strong>
+  <%= @lezioni.park %>
+</p>
+
+<p>
+  <strong>Meeting point:</strong>
+  <%= @lezioni.meeting_point %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @lezioni.equipment %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @lezioni.city %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @lezioni.time %>
+</p>
+
+<p>
+  <strong>Numero di iscritti:</strong>
+  <%= @lezioni.numero_di_iscritti %>
+</p>
+
+<p>
+  <strong>Durata:</strong>
+  <%= @lezioni.minutes %>
+</p>
+
+<% if @lezioni.trainer == current_trainer %>
+  <%= link_to 'Edit', edit_lezioni_path(@lezioni) %> |
+<% end %>
+<%= link_to 'Back', lezionis_path %>

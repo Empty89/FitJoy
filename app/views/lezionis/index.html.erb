@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lezionis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titolo</th>
+      <th>Prezzo</th>
+      <th>Descrizione</th>
+      <th>Allenatore</th>
+      <th>Date</th>
+      <th>Parco</th>
+      <th>Meeting point</th>
+      <th>Equipment</th>
+      <th>City</th>
+      <th>Time</th>
+      <th>Numero di iscritti</th>
+      <th>Durata</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lezionis.each do |lezioni| %>
+      <tr>
+        <td><%= lezioni.titolo %></td>
+        <td><%= lezioni.prezzo %></td>
+        <td><%= lezioni.descrizione %></td>
+        <td><%= lezioni.trainer.name %></td>
+        <td><%= lezioni.date %></td>
+        <td><%= lezioni.park %></td>
+        <td><%= lezioni.meeting_point %></td>
+        <td><%= lezioni.equipment %></td>
+        <td><%= lezioni.city %></td>
+        <td><%= lezioni.time %></td>
+        <td><%= lezioni.numero_di_iscritti %></td>
+        <td><%= lezioni.minutes %></td>
+        <td><%= link_to 'Apri', lezioni %></td>
+
+        <% if lezioni.trainer == current_trainer %>
+          <td><%= link_to 'Modifica', edit_lezioni_path(lezioni) %></td>
+          <td><%= link_to 'Cancella', lezioni, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <% end %>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lezioni', new_lezioni_path %>

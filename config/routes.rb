@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :lezionis
   devise_for :trainers
   devise_for :users
   root 'pages#home'

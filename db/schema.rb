@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805112830) do
+ActiveRecord::Schema.define(version: 20160807131353) do
+
+  create_table "lections", force: :cascade do |t|
+    t.string   "titolo"
+    t.decimal  "prezzo"
+    t.text     "descrizione"
+    t.datetime "data_e_ora"
+    t.string   "park"
+    t.text     "meeting_point"
+    t.text     "equipment"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "lezionis", force: :cascade do |t|
+    t.string   "titolo"
+    t.decimal  "prezzo"
+    t.text     "descrizione"
+    t.date     "date"
+    t.string   "park"
+    t.text     "meeting_point"
+    t.text     "equipment"
+    t.string   "city"
+    t.time     "time"
+    t.integer  "numero_di_iscritti"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "trainer_id"
+    t.integer  "minutes"
+  end
 
   create_table "trainers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
